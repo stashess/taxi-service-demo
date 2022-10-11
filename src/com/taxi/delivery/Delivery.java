@@ -1,7 +1,7 @@
 package com.taxi.delivery;
 
 public enum Delivery {
-    XXL(20), XL(18), L(13), M(10), S(12), XS(7);
+    XXL(20), XL(17), L(13), M(10), S(7), XS(5);
 
     public double getPriceOfDelivery() {
         return priceOfDelivery;

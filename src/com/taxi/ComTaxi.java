@@ -16,6 +16,7 @@ public class ComTaxi {
         ride.distanceCheck(scanner);
         double pricePerTrip = carClass.getPrice() * ride.getDistance();
         System.out.println("Your price for a trip is " + pricePerTrip + " dollars");
+
     }
 }
 
