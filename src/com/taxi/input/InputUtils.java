@@ -12,13 +12,21 @@ public class InputUtils {
         SCANNER.next();
     }
 
-
-    public static void ifExitPressed() {
-        clearScanner();
-        if (InputUtils.SCANNER.hasNext("^q$")){
-            throw new RuntimeException();
+    public static int getPositiveIntegerBetween(int min, int max) {
+        if (SCANNER.hasNextInt()) {
+            int i = SCANNER.nextInt();
+            if (i < min && i > max) {
+                System.out.println("Input should be in range " + min + " - " + max);
+                return getPositiveIntegerBetween(min, max);
+            }
+            return i;
+        } else {
+            InputUtils.clearScanner();
+            System.out.println("Input should be in range " + min + " - " + max);
+            return getPositiveIntegerBetween(min, max);
         }
     }
+
 
     public static double getPositiveDouble(String fieldName) {
         if (SCANNER.hasNextDouble()) {

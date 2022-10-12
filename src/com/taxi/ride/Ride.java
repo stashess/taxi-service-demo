@@ -1,6 +1,10 @@
 package com.taxi.ride;
 
+import com.taxi.input.InputUtils;
+
 import java.util.Scanner;
+
+import static com.taxi.input.InputUtils.*;
 
 public class Ride {
     private double distance;
@@ -14,22 +18,11 @@ public class Ride {
 
     }
 
-    public void distanceCheck(Scanner dsk) {
+    public void distanceCheck() {
         System.out.println("Please,enter you distance.");
-        if (dsk.hasNextDouble()) {
-            double distanceLength = dsk.nextDouble();
-            if (distanceLength < 0) {
-                System.out.println("Distance cannot be negative.");
-                distanceCheck(dsk);
-            }
-        } else {
-            clearScanner(dsk);
-            System.out.println("Unfortunately,distances measured in kilometers");
-            distanceCheck(dsk);
-        }
+        distance = getPositiveDouble("Distance");
     }
 
-    private void clearScanner(Scanner dsk) {
-        dsk.next();
-    }
+
+
 }
