@@ -1,6 +1,5 @@
 package com.taxi.ride;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ride {
@@ -17,19 +16,20 @@ public class Ride {
 
     public void distanceCheck(Scanner dsk) {
         System.out.println("Please,enter you distance.");
-        try {
+        if (dsk.hasNextDouble()) {
             double distanceLength = dsk.nextDouble();
-            if (distanceLength < 0 ) {
+            if (distanceLength < 0) {
                 System.out.println("Distance cannot be negative.");
                 distanceCheck(dsk);
-            } else {
-                this.distance = distanceLength;
-                System.out.println("Your distance " + distanceLength);
             }
-        } catch (InputMismatchException e) {
+        } else {
+            clearScanner(dsk);
             System.out.println("Unfortunately,distances measured in kilometers");
-            dsk.next();
             distanceCheck(dsk);
         }
+    }
+
+    private void clearScanner(Scanner dsk) {
+        dsk.next();
     }
 }
