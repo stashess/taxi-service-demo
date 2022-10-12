@@ -5,7 +5,7 @@ import com.taxi.input.ApplicationClientType;
 import com.taxi.input.InputUtils;
 
 public class ClientTypeFlow extends Flow {
-    private ApplicationClientType type;
+
 
     private void showMenu(){
         System.out.println("Select your type: ");
@@ -13,7 +13,7 @@ public class ClientTypeFlow extends Flow {
 
     public void process(){
         showMenu();
-        type = InputUtils.getEnumValue(ApplicationClientType.class);
+        ApplicationClientType type = InputUtils.getEnumValue(ApplicationClientType.class);
         if (ApplicationClientType.C.equals(type)){
             ClientFlow clientFlow = new ClientFlow();
             clientFlow.process();
