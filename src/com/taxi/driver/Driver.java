@@ -5,8 +5,17 @@ import com.taxi.input.InputUtils;
 
 public class Driver {
 
+    private int id;
     private String name;
     private CarClass type;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -33,4 +42,12 @@ public class Driver {
     }
 
 
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type=" + type +
+                '}';
+    }
 }

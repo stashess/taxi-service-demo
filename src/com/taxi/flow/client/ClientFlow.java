@@ -22,7 +22,7 @@ public class ClientFlow extends Flow {
     public void process() {
         while (true) {
             showMenu();
-            int choice = InputUtils.getPositiveIntegerBetween(1, 3);
+            int choice = InputUtils.getPositiveIntegerBetween(1, flows.size() + 1);
 
             if (choice == 1) {
                 flows.get(0).process();
