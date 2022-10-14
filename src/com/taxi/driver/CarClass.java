@@ -1,7 +1,7 @@
 package com.taxi.driver;
 
 public enum CarClass {
-    S(15), A(11), B(8), C(5);
+    S(15), A(12), B(10), C(7);
     private double price;
 
     public double getPrice() {

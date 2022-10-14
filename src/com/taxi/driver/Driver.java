@@ -5,8 +5,24 @@ import com.taxi.input.InputUtils;
 
 public class Driver {
 
-    String name;
-    CarClass type;
+    private String name;
+    private CarClass type;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public CarClass getType() {
+        return type;
+    }
+
+    public void setType(CarClass type) {
+        this.type = type;
+    }
 
     public static CarClass carTypeSelect() {
         return InputUtils.getEnumValue(CarClass.class);

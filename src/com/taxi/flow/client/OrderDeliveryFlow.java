@@ -1,26 +1,29 @@
 package com.taxi.flow.client;
 
+import com.taxi.delivery.Delivery;
 import com.taxi.driver.CarClass;
 import com.taxi.driver.Driver;
 import com.taxi.flow.Flow;
 import com.taxi.repository.RideRepository;
 import com.taxi.ride.Ride;
 
-public class OrderTaxiFlow extends Flow {
+public class OrderDeliveryFlow extends Flow {
     @Override
     public void process() {
         Ride ride1 = new Ride();
         Driver driver = new Driver();
-        CarClass carClass = driver.carTypeSelect();
+        Delivery delivery = driver.deliverySelect();
         double distance = ride1.distanceCheck();
-        double pricePerTrip = carClass.getPrice() * distance;
-        System.out.println("Your price for a trip is " + pricePerTrip + " dollars");
+        double pricePerDelivery = delivery.getPriceOfDelivery() * distance;
+        System.out.println("Your price for a delivery is " + pricePerDelivery + " dollars");
         System.out.println("");
-        System.out.println("You might order another taxi or delivery if you want");
+        System.out.println("You might order another delivery or taxi if you want");
         System.out.println("");
-        ride1.setRequestedCarType(carClass);
-        ride1.setRidePrice(pricePerTrip);
+        ride1.setTaxiDelivery(delivery);
+        ride1.setRidePrice(pricePerDelivery);
         ride1.setDistance(distance);
         RideRepository.save(ride1);
     }
 }
+
+
