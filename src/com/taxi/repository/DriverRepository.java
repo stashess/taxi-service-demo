@@ -14,11 +14,11 @@ public class DriverRepository {
 
     static {
         Driver driver = new Driver();
-        driver.setName("Stas");
+        driver.setName("Stanislav");
         driver.setType(CarClass.B);
         Driver driver1 = new Driver();
         driver1.setName("Dmytro");
-        driver1.setType(CarClass.S);
+        driver1.setType(CarClass.A);
         save(driver);
         save(driver1);
     }

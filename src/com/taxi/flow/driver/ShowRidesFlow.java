@@ -1,5 +1,6 @@
 package com.taxi.flow.driver;
 
+import com.taxi.driver.CarClass;
 import com.taxi.flow.Flow;
 import com.taxi.input.InputUtils;
 import com.taxi.repository.Context;
@@ -13,7 +14,8 @@ public class ShowRidesFlow extends Flow {
     @Override
     public void process() {
         System.out.println("Here are available rides:");
-        List<Ride> rides = RideRepository.showAndReturnRidesList();
+        List<Ride> rides = RideRepository.showAndReturnAvailableRidesList();
+
 
         System.out.println("Please pick a ride to complete or press 0 to exit:");
         int choice = InputUtils.getPositiveIntegerBetween(0, rides.size());
