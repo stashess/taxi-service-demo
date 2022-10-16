@@ -1,12 +1,10 @@
 package com.taxi.service;
 
-import java.net.ProxySelector;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,7 +14,7 @@ public class DistanceService {
             HttpRequest request = HttpRequest.newBuilder(new URI("https://www.distance-cities.com/search?from=" + city1 + "&to=" + city2)).build();
             HttpResponse<String> response = HttpClient.newHttpClient()
                     .send(request, HttpResponse.BodyHandlers.ofString());
-            Pattern pattern = Pattern.compile("(?<=<span id=\"rkm\">)(.*?)(?=<\\/span>)");
+            Pattern pattern = Pattern.compile("(?<=<span id=\"rkm\">)(.*?)(?=</span>)");
             Matcher matcher = pattern.matcher(response.body());
             if (matcher.find())
             {
@@ -30,7 +28,7 @@ public class DistanceService {
                 System.out.println(doubleValue);
                 return df.parse(doubleValue).doubleValue();
             }
-        } catch (Exception e){
+        } catch (Exception ignored){
         }
         return 0;
     }

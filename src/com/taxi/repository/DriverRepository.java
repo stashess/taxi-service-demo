@@ -3,14 +3,13 @@ package com.taxi.repository;
 import com.taxi.delivery.Delivery;
 import com.taxi.driver.CarClass;
 import com.taxi.driver.Driver;
-import com.taxi.ride.Ride;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class DriverRepository {
-    private static HashMap<Integer, Driver> DRIVERS = new HashMap<>();
+    private final static HashMap<Integer, Driver> DRIVERS = new HashMap<>();
     private static int COUNTER = 1;
 
     static {
@@ -29,11 +28,10 @@ public class DriverRepository {
         save(driver2);
     }
 
-    public static int save(Driver driver) {
+    public static void save(Driver driver) {
         DRIVERS.put(COUNTER, driver);
         driver.setId(COUNTER);
         COUNTER = COUNTER + 1;
-        return driver.getId();
     }
 
     public static List<Driver> getAll() {
@@ -42,8 +40,7 @@ public class DriverRepository {
 
     public static List<Driver> showAndReturnDriversList() {
         List<Driver> all = getAll();
-        for (int i = 0; i < all.size(); i++) {
-            Driver driver = all.get(i);
+        for (Driver driver : all) {
             System.out.println(driver.getId() + " | " + driver);
         }
         System.out.println("Total drivers : " + all.size());

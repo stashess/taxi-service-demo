@@ -1,6 +1,5 @@
 package com.taxi.repository;
 
-import com.taxi.client.Client;
 import com.taxi.delivery.Delivery;
 import com.taxi.driver.CarClass;
 import com.taxi.ride.Ride;
@@ -10,14 +9,13 @@ import java.util.HashMap;
 import java.util.List;
 
 public class RideRepository {
-    private static HashMap<Integer, Ride> RIDES = new HashMap<>(); // was HISTORY
+    private final static HashMap<Integer, Ride> RIDES = new HashMap<>(); // was HISTORY
     private static int COUNTER = 1;
 
-    public static int save(Ride ride) {
+    public static void save(Ride ride) {
         RIDES.put(COUNTER, ride);
         ride.setId(COUNTER);
         COUNTER = COUNTER + 1;
-        return ride.getId();
     }
 
     public static List<Ride> getAll() {
@@ -37,8 +35,7 @@ public class RideRepository {
     public static List<Ride> showAndReturnAvailableRidesList() {
         List<Ride> all = getAll();
         List<Ride> available = new ArrayList<>();
-        for (int i = 0; i < all.size(); i++) {
-            Ride ride = all.get(i);
+        for (Ride ride : all) {
             if (CarClass.canAnotherTypeDoAnOrder(ride.getRequestedCarType(), Context.CURRENT_DRIVER.getType())
                     && ride.getTaxiDriver() == null
                     && Delivery.canAnotherTypeDoADelivery(ride.getTaxiDelivery(),Context.CURRENT_DRIVER.getDeliveryType())) {
@@ -51,7 +48,7 @@ public class RideRepository {
         return available;
     }
 
-    public static List<Ride> showAndReturnCurrentClientHistory() {
+    public static void showAndReturnCurrentClientHistory() {
         List<Ride> all1 = getAll();
         List<Ride> result = new ArrayList<>();
         for (Ride ride1 : all1) {

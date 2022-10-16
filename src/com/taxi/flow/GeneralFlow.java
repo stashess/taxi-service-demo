@@ -6,12 +6,12 @@ import java.util.List;
 
 public class GeneralFlow extends Flow {
 
-    List<Flow> flows = List.of(new ClientTypeFlow());
+    final List<Flow> flows = List.of(new ClientTypeFlow());
 
     private void showMenu() {
         System.out.println("Press 1 to select user");
         System.out.println("Press 2 to quit");
-        System.out.println("");
+        System.out.println();
     }
 
 

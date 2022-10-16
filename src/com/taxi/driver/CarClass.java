@@ -1,5 +1,6 @@
 package com.taxi.driver;
 
+@SuppressWarnings("unused")
 public enum CarClass {
     S(15, 4), A(12, 3), B(10, 2), C(7, 1);
     private final double price;
@@ -22,7 +23,7 @@ public enum CarClass {
         if (clientRequestedCar == null) {
             return true;
         }
-        if (clientRequestedCar != null && driverCar == null) {
+        if (driverCar == null) {
             return false;
         }
 

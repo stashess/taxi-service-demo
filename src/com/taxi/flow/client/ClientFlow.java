@@ -2,13 +2,12 @@ package com.taxi.flow.client;
 
 import com.taxi.flow.Flow;
 import com.taxi.input.InputUtils;
-import com.taxi.repository.RideRepository;
 
 import java.util.List;
 
 public class ClientFlow extends Flow {
 
-    List<Flow> flows = List.of(new OrderTaxiFlow(), new OrderDeliveryFlow(), new ShowHistoryFlow());
+    private final List<Flow> flows = List.of(new OrderTaxiFlow(), new OrderDeliveryFlow(), new ShowHistoryFlow());
 
     private void showMenu() {
         System.out.println("Press 1 to order taxi");

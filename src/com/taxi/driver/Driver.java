@@ -1,7 +1,6 @@
 package com.taxi.driver;
 
 import com.taxi.delivery.Delivery;
-import com.taxi.input.InputUtils;
 
 public class Driver {
 

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ClientRepository {
-    private static HashMap<Integer, Client> CLIENTS = new HashMap<>();
+    private final  static HashMap<Integer, Client> CLIENTS = new HashMap<>();
     private static int COUNTER = 1;
 
     static {
@@ -25,11 +25,10 @@ public class ClientRepository {
 
     }
 
-    public static int save(Client client) {
+    public static void save(Client client) {
         CLIENTS.put(COUNTER, client);
         client.setId(COUNTER);
         COUNTER = COUNTER + 1;
-        return client.getId();
     }
 
     public static List<Client> getAll() {

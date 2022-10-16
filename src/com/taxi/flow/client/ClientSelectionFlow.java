@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ClientSelectionFlow extends Flow {
 
-    ClientFlow clientFlow = new ClientFlow();
+    final ClientFlow clientFlow = new ClientFlow();
 
     @Override
     public void process() {

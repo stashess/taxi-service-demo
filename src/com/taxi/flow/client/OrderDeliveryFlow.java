@@ -1,8 +1,6 @@
 package com.taxi.flow.client;
 
 import com.taxi.delivery.Delivery;
-import com.taxi.driver.CarClass;
-import com.taxi.driver.Driver;
 import com.taxi.flow.Flow;
 import com.taxi.repository.Context;
 import com.taxi.repository.RideRepository;

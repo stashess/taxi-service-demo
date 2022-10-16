@@ -1,6 +1,5 @@
 package com.taxi.flow.driver;
 
-import com.taxi.driver.CarClass;
 import com.taxi.flow.Flow;
 import com.taxi.input.InputUtils;
 import com.taxi.repository.Context;
@@ -22,9 +21,7 @@ public class ShowRidesFlow extends Flow {
         System.out.println("Please pick a ride to complete or press 0 to exit:");
         int choice = InputUtils.getPositiveIntegerBetween(0, rides.size());
 
-        if (choice == 0){
-            return;
-        } else {
+        if (choice != 0) {
             Ride ride = rides.get(choice - 1);
             ride.setTaxiDriver(Context.CURRENT_DRIVER);
             ride.setAccepted(LocalDateTime.now());

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DriverFlow extends Flow {
 
-    List<Flow> flows = List.of(new ShowRidesFlow());
+    final List<Flow> flows = List.of(new ShowRidesFlow());
 
     private void showMenu() {
         System.out.println("Press 1 to show rides");

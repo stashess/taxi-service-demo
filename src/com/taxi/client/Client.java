@@ -1,7 +1,5 @@
 package com.taxi.client;
 
-import com.taxi.driver.CarClass;
-
 import java.time.LocalDate;
 
 public class Client {

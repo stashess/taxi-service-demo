@@ -4,14 +4,8 @@ import com.taxi.client.Client;
 import com.taxi.delivery.Delivery;
 import com.taxi.driver.CarClass;
 import com.taxi.driver.Driver;
-import com.taxi.input.InputUtils;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Scanner;
-import java.util.function.LongToDoubleFunction;
-
-import static com.taxi.input.InputUtils.*;
 
 public class Ride {
 
