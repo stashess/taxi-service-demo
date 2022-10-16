@@ -1,7 +1,7 @@
 package com.taxi.driver;
 
 public enum CarClass {
-    S(15,4), A(12,3), B(10,2), C(7,1);
+    S(15, 4), A(12, 3), B(10, 2), C(7, 1);
     private final double price;
     private final int carClassification;
 
@@ -18,10 +18,15 @@ public enum CarClass {
         this.carClassification = carClassification;
     }
 
-    public static boolean canAnotherTypeDoAnOrder(CarClass clientRequestedCar, CarClass driverCar){
+    public static boolean canAnotherTypeDoAnOrder(CarClass clientRequestedCar, CarClass driverCar) {
+        if (clientRequestedCar == null) {
+            return true;
+        }
+        if (clientRequestedCar != null && driverCar == null) {
+            return false;
+        }
+
+
         return driverCar.carClassification >= clientRequestedCar.carClassification;
     }
-
-
-
 }

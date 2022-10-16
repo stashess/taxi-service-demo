@@ -15,7 +15,7 @@ public class InputUtils {
     public static int getPositiveIntegerBetween(int min, int max) {
         if (SCANNER.hasNextInt()) {
             int i = SCANNER.nextInt();
-            if (i < min && i > max) {
+            if (i < min || i > max) {
                 System.out.println("Input should be in range " + min + " - " + max);
                 return getPositiveIntegerBetween(min, max);
             }

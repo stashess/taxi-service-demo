@@ -11,7 +11,7 @@ public class ShowHistoryFlow extends Flow {
     @Override
     public void process() {
         System.out.println("Ride history: ");
-        RideRepository.showAndReturnRidesList();
+        RideRepository.showAndReturnCurrentClientHistory();
         System.out.println("");
     }
 

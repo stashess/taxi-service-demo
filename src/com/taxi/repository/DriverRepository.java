@@ -1,5 +1,6 @@
 package com.taxi.repository;
 
+import com.taxi.delivery.Delivery;
 import com.taxi.driver.CarClass;
 import com.taxi.driver.Driver;
 import com.taxi.ride.Ride;
@@ -19,8 +20,13 @@ public class DriverRepository {
         Driver driver1 = new Driver();
         driver1.setName("Dmytro");
         driver1.setType(CarClass.A);
+        driver1.setDeliveryType(Delivery.L);
+        Driver driver2  = new Driver();
+        driver2.setName("Vasiliy");
+        driver2.setDeliveryType(Delivery.XXL);
         save(driver);
         save(driver1);
+        save(driver2);
     }
 
     public static int save(Driver driver) {

@@ -9,6 +9,16 @@ public class Driver {
     private String name;
     private CarClass type;
 
+    private Delivery deliveryType;
+
+    public Delivery getDeliveryType() {
+        return deliveryType;
+    }
+
+    public void setDeliveryType(Delivery deliveryType) {
+        this.deliveryType = deliveryType;
+    }
+
     public int getId() {
         return id;
     }
@@ -48,6 +58,7 @@ public class Driver {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", type=" + type +
+                ", deliveryType=" + deliveryType +
                 '}';
     }
 }

@@ -6,7 +6,10 @@ import com.taxi.driver.CarClass;
 import com.taxi.driver.Driver;
 import com.taxi.input.InputUtils;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Scanner;
+import java.util.function.LongToDoubleFunction;
 
 import static com.taxi.input.InputUtils.*;
 
@@ -23,6 +26,24 @@ public class Ride {
 
     private Client taxiClient;
     private Delivery taxiDelivery;
+    private LocalDateTime created;
+    private LocalDateTime accepted;
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getAccepted() {
+        return accepted;
+    }
+
+    public void setAccepted(LocalDateTime accepted) {
+        this.accepted = accepted;
+    }
 
     public Delivery getTaxiDelivery() {
         return taxiDelivery;
@@ -87,7 +108,7 @@ public class Ride {
 
     @Override
     public String toString() {
-        return "Ride " +
+        return "Ride {" +
                 "id=" + id +
                 ", distance=" + distance +
                 ", taxiDriver=" + taxiDriver +
@@ -95,6 +116,8 @@ public class Ride {
                 ", ridePrice=" + ridePrice +
                 ", taxiClient=" + taxiClient +
                 ", taxiDelivery=" + taxiDelivery +
-                '.';
+                ", created=" + created +
+                ", accepted=" + accepted +
+                '}';
     }
 }
