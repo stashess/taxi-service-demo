@@ -9,7 +9,7 @@ public class ShowHistoryFlow extends Flow {
     public void process() {
         System.out.println("Ride history: ");
         RideRepository.showAndReturnCurrentClientHistory();
-        System.out.println("");
+        System.out.println();
     }
 
 

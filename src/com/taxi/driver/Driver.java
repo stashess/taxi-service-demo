@@ -42,14 +42,6 @@ public class Driver {
         this.type = type;
     }
 
-    public static CarClass carTypeSelect() {
-        return InputUtils.getEnumValue(CarClass.class);
-    }
-
-    public static Delivery deliverySelect() {
-        return InputUtils.getEnumValue(Delivery.class);
-    }
-
 
     @Override
     public String toString() {

@@ -95,10 +95,6 @@ public class Ride {
         this.taxiClient = taxiClient;
     }
 
-    public double distanceCheck() {
-        System.out.println("Please,enter you distance.");
-        return getPositiveDouble("Distance");
-    }
 
     @Override
     public String toString() {

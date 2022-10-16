@@ -22,15 +22,6 @@ public class RideRepository {
         return new ArrayList<>(RIDES.values());
     }
 
-    public static List<Ride> showAndReturnRidesList() {
-        List<Ride> all = getAll();
-        for (int i = 0; i < all.size(); i++) {
-            Ride ride = all.get(i);
-            System.out.println(ride.getId() + " | " + ride);
-        }
-        System.out.println("Total rides : " + all.size());
-        return all;
-    }
 
     public static List<Ride> showAndReturnAvailableRidesList() {
         List<Ride> all = getAll();
@@ -38,7 +29,7 @@ public class RideRepository {
         for (Ride ride : all) {
             if (CarClass.canAnotherTypeDoAnOrder(ride.getRequestedCarType(), Context.CURRENT_DRIVER.getType())
                     && ride.getTaxiDriver() == null
-                    && Delivery.canAnotherTypeDoADelivery(ride.getTaxiDelivery(),Context.CURRENT_DRIVER.getDeliveryType())) {
+                    && Delivery.canAnotherTypeDoADelivery(ride.getTaxiDelivery(), Context.CURRENT_DRIVER.getDeliveryType())) {
                 available.add(ride);
                 System.out.println(available.size() + " | " + ride);
             }
@@ -57,6 +48,6 @@ public class RideRepository {
                 System.out.println(result.size() + " | " + ride1);
             }
         }
-        return result;
+        System.out.println("Total rides : " + result.size());
     }
 }

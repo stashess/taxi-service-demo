@@ -5,27 +5,32 @@ import com.taxi.flow.Flow;
 import com.taxi.repository.Context;
 import com.taxi.repository.RideRepository;
 import com.taxi.ride.Ride;
+import com.taxi.service.ClientService;
+import com.taxi.service.DriverService;
 
 import java.time.LocalDateTime;
 
 public class OrderDeliveryFlow extends Flow {
+
+    private final ClientService clientService = ClientService.INSTANCE;
+    private final DriverService driverService = DriverService.INSTANCE;
+
     @Override
     public void process() {
-        Ride ride1 = new Ride();
-        Driver driver = new Driver();
-        Delivery delivery = driver.deliverySelect();
-        double distance = ride1.distanceCheck();
+        Delivery delivery = driverService.enterDeliveryType();
+        double distance = clientService.enterDistance();
         double pricePerDelivery = delivery.getPriceOfDelivery() * distance;
-        System.out.println("Your price for a delivery is " + pricePerDelivery + " dollars");
-        System.out.println("");
-        System.out.println("You might order another delivery or taxi if you want");
-        System.out.println("");
-        ride1.setTaxiClient(Context.CURRENT_CLIENT);
-        ride1.setTaxiDelivery(delivery);
-        ride1.setRidePrice(pricePerDelivery);
-        ride1.setDistance(distance);
-        ride1.setCreated(LocalDateTime.now());
-        RideRepository.save(ride1);
+
+        System.out.println("Your price for a delivery is " + pricePerDelivery + " dollars\n");
+        System.out.println("You might order another delivery or taxi if you want\n");
+
+        Ride ride = new Ride();
+        ride.setTaxiClient(Context.CURRENT_CLIENT);
+        ride.setTaxiDelivery(delivery);
+        ride.setRidePrice(pricePerDelivery);
+        ride.setDistance(distance);
+        ride.setCreated(LocalDateTime.now());
+        RideRepository.save(ride);
     }
 }
 

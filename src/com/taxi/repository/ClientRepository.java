@@ -37,8 +37,7 @@ public class ClientRepository {
 
     public static List<Client> showAndReturnClientsList() {
         List<Client> all = getAll();
-        for (int i = 0; i < all.size(); i++) {
-            Client client = all.get(i);
+        for (Client client : all) {
             System.out.println(client.getId() + " | " + client);
         }
         System.out.println("Total clients : " + all.size());

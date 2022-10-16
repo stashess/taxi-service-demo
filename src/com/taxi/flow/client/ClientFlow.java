@@ -13,8 +13,7 @@ public class ClientFlow extends Flow {
         System.out.println("Press 1 to order taxi");
         System.out.println("Press 2 to order delivery");
         System.out.println("Press 3 to show history");
-        System.out.println("Press 4 to quit");
-        System.out.println("");
+        System.out.println("Press 4 to quit\n");
     }
 
     @Override
