@@ -22,7 +22,6 @@ public class ClientRepository {
         client1.setRegistration(date1);
         save(client);
         save(client1);
-
     }
 
     public static void save(Client client) {

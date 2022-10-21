@@ -47,7 +47,7 @@ public class InputUtils {
     //java generics
     //enum
     //class class
-    public static <T extends Enum<T>> T getEnumValue(Class<T> type) {
+    public static <T extends Enum<T>> T getEnumValueFromInput(Class<T> type) {
         System.out.println("Select, one of the following options " + Arrays.toString(type.getEnumConstants()));
         String input = SCANNER.next();
         input = input.toUpperCase();
@@ -55,7 +55,8 @@ public class InputUtils {
             return Enum.valueOf(type, input);
         } catch (IllegalArgumentException e) {
             System.out.println("Unfortunately,there is no such class");
-            return getEnumValue(type);
+            return getEnumValueFromInput(type);
         }
     }
+
 }

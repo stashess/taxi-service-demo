@@ -4,7 +4,8 @@ import com.taxi.driver.Driver;
 import com.taxi.flow.Flow;
 import com.taxi.input.InputUtils;
 import com.taxi.repository.Context;
-import com.taxi.repository.DriverRepository;
+import com.taxi.repository.driver.DriverDBRepository;
+import com.taxi.repository.driver.DriverRepository;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class DriverSelectionFlow extends Flow {
     @Override
     public void process() {
         System.out.println("Please pick a profile to complete or press 0 to exit:");
-        List<Driver> drivers = DriverRepository.showAndReturnDriversList();
+        List<Driver> drivers = DriverDBRepository.showAndReturnDriversList();
 
         int choice = InputUtils.getPositiveIntegerBetween(0, drivers.size());
 

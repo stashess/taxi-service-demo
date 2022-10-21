@@ -1,4 +1,4 @@
-package com.taxi.repository;
+package com.taxi.repository.driver;
 
 import com.taxi.delivery.Delivery;
 import com.taxi.driver.CarClass;

@@ -18,7 +18,7 @@ public class ClientTypeFlow extends Flow {
 
     public void process() {
         showMenu();
-        ApplicationClientType type = InputUtils.getEnumValue(ApplicationClientType.class);
+        ApplicationClientType type = InputUtils.getEnumValueFromInput(ApplicationClientType.class);
         if (ApplicationClientType.C.equals(type)) {
             clientSelectionFlow.process();
         } else if (ApplicationClientType.D.equals(type)) {
